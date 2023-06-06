@@ -6,9 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/api/songs', name: 'api_songs_')]
 class SongController extends AbstractController
 {
-    #[Route('/api/songs/{id}')]
+    #[Route('/{id<\d+>}', methods: ['GET'], name: 'show')]
     public function show(int $id): Response
     {
         // TODO query the database
